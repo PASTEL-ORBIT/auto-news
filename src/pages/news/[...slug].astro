@@ -51,11 +51,30 @@ const dateStr = article.data.pubDate.toLocaleDateString('ja-JP', {
       </footer>
     )}
 
+    <div class="article-actions">
+      <button class="btn-note" data-command={`/write-note-article src/content/news/${article.id}.md`}>
+        Note を書く
+      </button>
+    </div>
+
     <nav class="article-back">
       <a href={import.meta.env.BASE_URL}>&larr; 一覧に戻る</a>
     </nav>
   </article>
 </BaseLayout>
+
+<script>
+  document.querySelectorAll('.btn-note').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const command = btn.getAttribute('data-command');
+      if (!command) return;
+      await navigator.clipboard.writeText(command);
+      const original = btn.textContent;
+      btn.textContent = 'コピーしました!';
+      setTimeout(() => { btn.textContent = original; }, 2000);
+    });
+  });
+</script>
 
 <style>
   .article-full {
@@ -150,8 +169,41 @@ const dateStr = article.data.pubDate.toLocaleDateString('ja-JP', {
     font-size: 0.85rem;
   }
 
-  .article-back {
+  .article-actions {
     margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .btn-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+
+  .btn-note:hover {
+    background: var(--color-surface-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .btn-note:active {
+    transform: translateY(0);
+  }
+
+  .article-back {
+    margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--color-border);
     font-size: 0.9rem;
