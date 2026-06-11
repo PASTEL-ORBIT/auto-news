@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About">
+  <article class="about">
+    <h1>Auto News について</h1>
+    <p>
+      このサイトは、テクノロジー・AI・インディーゲームに関する最新ニュースを
+      毎日自動で収集・要約してお届けするニュースサイトです。
+    </p>
+
+    <h2>仕組み</h2>
+    <p>
+      Claude Routines（AIスケジューリング機能）が毎朝ニュースソースを巡回し、
+      注目すべきトピックを日本語で要約・記事化します。
+      生成された記事はGitHubリポジトリにコミットされ、
+      GitHub Actionsを通じて自動的にサイトがビルド・デプロイされます。
+    </p>
+
+    <h2>カテゴリ</h2>
+    <ul>
+      <li><strong>テック</strong> — ソフトウェア開発、Web技術、プログラミング言語</li>
+      <li><strong>AI</strong> — 機械学習、LLM、AI製品・サービス</li>
+      <li><strong>インディーゲーム</strong> — インディーゲーム開発、リリース情報、開発ツール</li>
+    </ul>
+
+    <h2>運営</h2>
+    <p>
+      <a href="https://github.com/PASTEL-ORBIT" target="_blank" rel="noopener">PASTEL ORBIT</a>
+      が運営しています。
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .about {
+    max-width: 650px;
+  }
+
+  .about h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .about h2 {
+    font-size: 1.1rem;
+    margin: 2rem 0 0.5rem;
+  }
+
+  .about p {
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .about ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+  }
+
+  .about li {
+    line-height: 1.6;
+  }
+</style>

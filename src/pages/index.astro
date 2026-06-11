@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const allNews = (await getCollection('news'))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 20);
+---
+<BaseLayout title="ホーム">
+  <section>
+    <h1 class="page-title">最新ニュース</h1>
+    <p class="page-desc">テック・AI・インディーゲームの最新情報を毎日自動でお届けします。</p>
+    <div class="article-list">
+      {allNews.map((article) => (
+        <ArticleCard
+          title={article.data.title}
+          description={article.data.description}
+          pubDate={article.data.pubDate}
+          category={article.data.category}
+          slug={article.id}
+        />
+      ))}
+    </div>
+    {allNews.length === 0 && (
+      <p class="empty-state">まだ記事がありません。毎朝自動的に記事が追加されます。</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .page-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--color-text-muted);
+  }
+</style>

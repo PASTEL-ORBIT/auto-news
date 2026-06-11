@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export function getStaticPaths() {
+  const categories = ['tech', 'ai', 'indie-game', 'general'];
+  return categories.map((category) => ({
+    params: { category },
+    props: { category },
+  }));
+}
+
+const categoryLabels: Record<string, string> = {
+  tech: 'テック',
+  ai: 'AI',
+  'indie-game': 'インディーゲーム',
+  general: '総合',
+};
+
+const { category } = Astro.params;
+const label = categoryLabels[category!] ?? category;
+
+const articles = (await getCollection('news', ({ data }) => data.category === category))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+<BaseLayout title={label}>
+  <section>
+    <h1 class="page-title">{label}</h1>
+    <div class="article-list">
+      {articles.map((article) => (
+        <ArticleCard
+          title={article.data.title}
+          description={article.data.description}
+          pubDate={article.data.pubDate}
+          category={article.data.category}
+          slug={article.id}
+        />
+      ))}
+    </div>
+    {articles.length === 0 && (
+      <p class="empty-state">このカテゴリの記事はまだありません。</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--color-text-muted);
+  }
+</style>

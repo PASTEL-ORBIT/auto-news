@@ -1,0 +1,54 @@
+{
+  "feeds": [
+    {
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/rss",
+      "category": "tech"
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "category": "tech"
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "category": "tech"
+    },
+    {
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed/",
+      "category": "ai"
+    },
+    {
+      "name": "AI News (Hugging Face)",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "category": "ai"
+    },
+    {
+      "name": "AUTOMATON",
+      "url": "https://automaton-media.com/feed/",
+      "category": "indie-game"
+    },
+    {
+      "name": "IndieGamesPlus",
+      "url": "https://indiegamesplus.com/feed",
+      "category": "indie-game"
+    },
+    {
+      "name": "Game*Spark",
+      "url": "https://www.gamespark.jp/feed/index.xml",
+      "category": "indie-game"
+    },
+    {
+      "name": "itch.io Blog",
+      "url": "https://itch.io/blog.xml",
+      "category": "indie-game"
+    },
+    {
+      "name": "GIGAZINE",
+      "url": "https://gigazine.net/news/rss_2.0/",
+      "category": "tech"
+    }
+  ]
+}

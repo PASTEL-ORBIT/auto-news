@@ -1,0 +1,46 @@
+---
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+
+const labels: Record<string, string> = {
+  tech: 'テック',
+  ai: 'AI',
+  'indie-game': 'インディーゲーム',
+  general: '総合',
+};
+---
+<span class={`badge badge-${category}`}>{labels[category] ?? category}</span>
+
+<style>
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .badge-tech {
+    background: color-mix(in srgb, var(--color-tech) 15%, transparent);
+    color: var(--color-tech);
+  }
+
+  .badge-ai {
+    background: color-mix(in srgb, var(--color-ai) 15%, transparent);
+    color: var(--color-ai);
+  }
+
+  .badge-indie-game {
+    background: color-mix(in srgb, var(--color-indie-game) 15%, transparent);
+    color: var(--color-indie-game);
+  }
+
+  .badge-general {
+    background: color-mix(in srgb, var(--color-general) 15%, transparent);
+    color: var(--color-general);
+  }
+</style>
