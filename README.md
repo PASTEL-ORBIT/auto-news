@@ -1,4 +1,6 @@
-# Auto News
+# Orbit Wire
+
+> Izu's picks — daily curated news by AI
 
 Automated daily news site covering **Tech/AI** and **Indie Games**, powered by [Claude Routines](https://claude.ai) + [Astro](https://astro.build).
 

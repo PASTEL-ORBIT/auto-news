@@ -13,13 +13,14 @@ const { title, description = 'テック・AI・インディーゲームの最新
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-  <link rel="alternate" type="application/rss+xml" title="Auto News RSS" href={`${import.meta.env.BASE_URL}rss.xml`} />
-  <title>{title} | Auto News</title>
+  <link rel="alternate" type="application/rss+xml" title="Orbit Wire RSS" href={`${import.meta.env.BASE_URL}rss.xml`} />
+  <title>{title} | Orbit Wire</title>
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a href={import.meta.env.BASE_URL} class="site-title">Auto News</a>
+      <a href={import.meta.env.BASE_URL} class="site-title">Orbit Wire</a>
+      <span class="site-subtitle">Izu's picks &mdash; daily curated news by AI</span>
       <nav class="site-nav">
         <a href={import.meta.env.BASE_URL}>ホーム</a>
         <a href={`${import.meta.env.BASE_URL}category/tech/`}>テック</a>
@@ -130,6 +131,12 @@ const { title, description = 'テック・AI・インディーゲームの最新
     font-weight: 700;
     color: var(--color-text);
     letter-spacing: -0.02em;
+  }
+
+  .site-subtitle {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
   }
 
   .site-nav {

@@ -8,8 +8,8 @@ export async function GET(context: APIContext) {
     .slice(0, 30);
 
   return rss({
-    title: 'Auto News',
-    description: 'テック・AI・インディーゲームの最新ニュースを毎日お届け',
+    title: 'Orbit Wire',
+    description: "Izu's picks — daily curated news by AI",
     site: context.site!,
     items: news.map((article) => ({
       title: article.data.title,
