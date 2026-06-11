@@ -12,7 +12,7 @@ interface Props {
 const { title, description, pubDate, category, slug } = Astro.props;
 const dateStr = pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
-<article class="article-card">
+<article class="article-card glass-card">
   <div class="article-meta">
     <time datetime={pubDate.toISOString()}>{dateStr}</time>
     <CategoryBadge category={category} />
@@ -25,28 +25,28 @@ const dateStr = pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'l
 
 <style>
   .article-card {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 1rem;
   }
 
   .article-meta {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     font-size: 0.8rem;
     color: var(--color-text-muted);
   }
 
   .article-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     line-height: 1.4;
   }
 
   .article-title a {
     color: var(--color-text);
+    transition: color 0.2s;
   }
 
   .article-title a:hover {
@@ -54,8 +54,8 @@ const dateStr = pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'l
   }
 
   .article-desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: 1.7;
   }
 </style>

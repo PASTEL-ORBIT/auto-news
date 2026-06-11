@@ -17,30 +17,34 @@ const labels: Record<string, string> = {
 <style>
   .badge {
     display: inline-block;
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
     font-size: 0.7rem;
     font-weight: 600;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .badge-tech {
-    background: color-mix(in srgb, var(--color-tech) 15%, transparent);
+    background: rgba(56, 189, 248, 0.12);
     color: var(--color-tech);
+    border: 1px solid rgba(56, 189, 248, 0.2);
   }
 
   .badge-ai {
-    background: color-mix(in srgb, var(--color-ai) 15%, transparent);
+    background: rgba(244, 114, 182, 0.12);
     color: var(--color-ai);
+    border: 1px solid rgba(244, 114, 182, 0.2);
   }
 
   .badge-indie-game {
-    background: color-mix(in srgb, var(--color-indie-game) 15%, transparent);
+    background: rgba(52, 211, 153, 0.12);
     color: var(--color-indie-game);
+    border: 1px solid rgba(52, 211, 153, 0.2);
   }
 
   .badge-general {
-    background: color-mix(in srgb, var(--color-general) 15%, transparent);
+    background: rgba(251, 191, 36, 0.12);
     color: var(--color-general);
+    border: 1px solid rgba(251, 191, 36, 0.2);
   }
 </style>
