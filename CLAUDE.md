@@ -91,6 +91,12 @@ src/content/news/YYYY/MM/DD-slug-in-english.md
 - URL: `https://pastel-orbit.github.io/auto-news/`
 - 独立したGitHub Pagesサイトとして配信
 
+## リポジトリ運用方針
+- branch作成不要。常にmainブランチが対象
+- PR作成不要
+- 即時push
+- このルーティンが実行された場合、既に同日の記事がある場合でも更に追加。但し同じネタは使わない
+
 ## Claude Routine連携
 
 - Routine設定はclaude.aiのWeb UIで管理
